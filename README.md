@@ -71,6 +71,10 @@ scripts/diagnose.sh
 docs/
 ```
 
+## 詳細なデバッグ記事
+
+調査の仮説、実行出力、公式API仕様、修正判断をまとめた記事は、[Javaで`Stream.toList()`の結果に`add`すると落ちる理由：戻り値の変更可能性を最小再現から理解する](docs/JavaでStream.toListの結果にaddすると落ちる理由：戻り値の変更可能性を最小再現から理解する.md)にあります。同一の原稿はQiitaコンテンツリポジトリにも草稿として保存します。
+
 ## 修正の意図
 
 修正は `Collectors.toList()` への単純な書き換えではありません。同APIは戻り値の変更可能性を保証しないため、可変の `ArrayList` を要求する契約を `Collectors.toCollection(ArrayList::new)` で明示しています。詳細な調査経緯と公式仕様の引用は記事下書きに記載しています。
