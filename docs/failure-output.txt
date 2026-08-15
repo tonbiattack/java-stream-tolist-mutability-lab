@@ -1,0 +1,7 @@
+before add: java.util.ImmutableCollections$ListN
+Exception in thread "main" java.lang.UnsupportedOperationException
+	at java.base/java.util.ImmutableCollections.uoe(ImmutableCollections.java:142)
+	at java.base/java.util.ImmutableCollections$AbstractImmutableCollection.add(ImmutableCollections.java:147)
+	at jp.example.recipients.RecipientPlanner.planRecipients(RecipientPlanner.java:19)
+	at jp.example.recipients.RecipientPlannerTest.activeRecipientsCanBeExtendedWithAuditRecipient(RecipientPlannerTest.java:18)
+	at jp.example.recipients.RecipientPlannerTest.main(RecipientPlannerTest.java:11)

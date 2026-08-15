@@ -1,0 +1,4 @@
+before add: java.util.ImmutableCollections$ListN
+active=0: java.lang.UnsupportedOperationException
+before add: java.util.ImmutableCollections$ListN
+active=1: java.lang.UnsupportedOperationException
