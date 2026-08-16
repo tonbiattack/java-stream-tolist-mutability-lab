@@ -1,13 +1,15 @@
 package jp.tonbiattack.debuglab;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Builds shipment lines from order lines.
  *
- * <p>BUG: this method filters with {@code Stream.toList()} and then adds an
- * insurance line. Since the returned list is unmodifiable, the add operation
- * throws {@link UnsupportedOperationException} when insurance is requested.</p>
+ * <p>The insurance post-processing step structurally modifies its working list.
+ * The collector therefore explicitly creates an {@link ArrayList}, rather than
+ * relying on an unspecified implementation or on {@code Stream.toList()}.</p>
  */
 public final class ShipmentPlanner {
 
@@ -16,7 +18,7 @@ public final class ShipmentPlanner {
             boolean insuranceRequested) {
         List<ShipmentLine> shipmentLines = requestedLines.stream()
                 .filter(ShipmentLine::shippable)
-                .toList();
+                .collect(Collectors.toCollection(ArrayList::new));
 
         System.out.printf(
                 "beforeAdd: class=%s, lines=%s, insuranceRequested=%s%n",
